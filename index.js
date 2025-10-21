@@ -8,6 +8,9 @@ app.set("views", path.join(__dirname, "views"));
 // Chỉ định loại view engine
 app.set("view engine", "pug");
 
+// Chỉ định thư mục chưa file tĩnh bên phía client
+app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
