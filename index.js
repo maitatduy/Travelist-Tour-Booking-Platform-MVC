@@ -3,6 +3,12 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
+// Kết nối MongoDB sử dụng Mongoose
+require("dotenv").config();
+const mongoose = require("mongoose");
+mongoose.connect(process.env.DATABASE_URL);
+
+
 // Chỉ định thư mục chưa views
 app.set("views", path.join(__dirname, "views"));
 // Chỉ định loại view engine
