@@ -1,0 +1,9 @@
+extends ../layouts/default.pug
+
+block main
+  h1 Danh sách tour
+
+  ul
+    each item in tourList
+      li #{item.name} 
+      li #{item.vehicle}

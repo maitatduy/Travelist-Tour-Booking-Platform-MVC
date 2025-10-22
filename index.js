@@ -8,6 +8,7 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE_URL);
 
+const clientRoutes = require("./routers/client/index.route");
 
 // Chỉ định thư mục chưa views
 app.set("views", path.join(__dirname, "views"));
@@ -17,9 +18,8 @@ app.set("view engine", "pug");
 // Chỉ định thư mục chưa file tĩnh bên phía client
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// Thiết lập đường dẫn
+app.use("/", clientRoutes);
 
 app.listen(port, () => {
   console.log(`Trang web đang chạy ở cổng: ${port}`);
